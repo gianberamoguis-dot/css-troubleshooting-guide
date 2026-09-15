@@ -1,0 +1,551 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Troubleshooting Guide</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eef3f7;
+  color: #1e293b;
+}
+
+header {
+  background: #123b5d;
+  color: white;
+  padding: 32px 18px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+header p {
+  margin: 0;
+  color: #dbeafe;
+}
+
+.container {
+  max-width: 950px;
+  margin: auto;
+  padding: 18px;
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+h2, h3 {
+  color: #123b5d;
+}
+
+.search {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  margin: 10px 0 18px;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.topic {
+  border: 1px solid #dbe3ea;
+  border-radius: 12px;
+  padding: 16px;
+  background: #ffffff;
+}
+
+.topic h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.topic p {
+  color: #64748b;
+  min-height: 40px;
+}
+
+button {
+  background: #123b5d;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d587f;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+.back-button {
+  background: #64748b;
+  margin-bottom: 14px;
+}
+
+.guide {
+  display: none;
+}
+
+.guide.active {
+  display: block;
+}
+
+.guide h2 {
+  margin-top: 0;
+}
+
+.guide li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.warning {
+  background: #fff7ed;
+  color: #9a3412;
+  border: 1px solid #fed7aa;
+  padding: 14px;
+  border-radius: 9px;
+  margin-top: 18px;
+}
+
+.no-results {
+  display: none;
+  color: #64748b;
+  text-align: center;
+  padding: 15px;
+}
+
+.footer {
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+  padding: 20px;
+}
+
+@media (max-width: 500px) {
+  header h1 {
+    font-size: 24px;
+  }
+
+  .container {
+    padding: 12px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🔧 CSS Troubleshooting Guide</h1>
+  <p>Learn • Identify • Troubleshoot</p>
+</header>
+
+<div class="container">
+
+  <section class="card" id="home">
+    <h2>Welcome, CSS Students! 👋</h2>
+
+    <p>
+      This website provides simple guides for identifying and
+      troubleshooting common computer hardware and software problems.
+    </p>
+
+    <h3>How to use this guide</h3>
+
+    <ol>
+      <li>Identify the computer problem.</li>
+      <li>Find the matching topic below.</li>
+      <li>Read and follow the troubleshooting steps.</li>
+      <li>Ask your teacher for help when necessary.</li>
+    </ol>
+
+    <input
+      type="search"
+      id="searchBox"
+      class="search"
+      placeholder="🔍 Search a computer problem..."
+      aria-label="Search computer problems"
+    >
+
+    <h2>🖥️ Troubleshooting Topics</h2>
+
+    <div class="topic-grid" id="topicGrid">
+
+      <article class="topic" data-search="power computer won't turn on hardware">
+        <h3>⚡ Computer Won't Turn On</h3>
+        <p>Basic power and startup checks.</p>
+        <button onclick="openGuide('power')">
+          View Guide
+        </button>
+      </article>
+
+      <article class="topic" data-search="sound audio speaker headset hardware software">
+        <h3>🔊 Computer Has No Sound</h3>
+        <p>Check audio connections and sound settings.</p>
+        <button onclick="openGuide('sound')">
+          View Guide
+        </button>
+      </article>
+
+      <article class="topic" data-search="monitor display screen hardware">
+        <h3>🖥️ Monitor Has No Display</h3>
+        <p>Check the monitor and display connection.</p>
+        <button onclick="openGuide('display')">
+          View Guide
+        </button>
+      </article>
+
+      <article class="topic" data-search="keyboard keys typing hardware">
+        <h3>⌨️ Keyboard Not Working</h3>
+        <p>Check keyboard connections and operation.</p>
+        <button onclick="openGuide('keyboard')">
+          View Guide
+        </button>
+      </article>
+
+      <article class="topic" data-search="slow computer performance software">
+        <h3>🐌 Computer Is Running Slowly</h3>
+        <p>Basic software performance checks.</p>
+        <button onclick="openGuide('slow')">
+          View Guide
+        </button>
+      </article>
+
+      <article class="topic" data-search="application program app frozen software">
+        <h3>💻 Application Not Responding</h3>
+        <p>Steps for dealing with a frozen application.</p>
+        <button onclick="openGuide('application')">
+          View Guide
+        </button>
+      </article>
+
+    </div>
+
+    <p class="no-results" id="noResults">
+      No matching topic found. Try another search.
+    </p>
+  </section>
+
+  <!-- COMPUTER WON'T TURN ON -->
+
+  <section class="card guide" id="power">
+    <button class="back-button" onclick="goHome()">← Back to Topics</button>
+
+    <h2>⚡ Computer Won't Turn On</h2>
+
+    <p>
+      <strong>Problem:</strong>
+      The computer does not start when the power button is pressed.
+    </p>
+
+    <h3>Possible Causes</h3>
+
+    <ul>
+      <li>Loose or disconnected power cable.</li>
+      <li>Power outlet may not be working.</li>
+      <li>Possible hardware or power supply problem.</li>
+    </ul>
+
+    <h3>Step-by-Step Solution</h3>
+
+    <ol>
+      <li>Check that the power cable is connected properly.</li>
+      <li>Check whether the power outlet is working.</li>
+      <li>Check that the monitor and computer have power.</li>
+      <li>Press the computer's power button once.</li>
+      <li>If it still does not start, ask a teacher or qualified technician for help.</li>
+    </ol>
+
+    <div class="warning">
+      ⚠️ Do not open the power supply or touch internal electrical parts.
+    </div>
+  </section>
+
+  <!-- NO SOUND -->
+
+  <section class="card guide" id="sound">
+    <button class="back-button" onclick="goHome()">← Back to Topics</button>
+
+    <h2>🔊 Computer Has No Sound</h2>
+
+    <p>
+      <strong>Problem:</strong>
+      The computer plays audio, but no sound can be heard.
+    </p>
+
+    <h3>Possible Causes</h3>
+
+    <ul>
+      <li>The volume is muted.</li>
+      <li>Speaker or headset is not connected properly.</li>
+      <li>The wrong audio output is selected.</li>
+      <li>There may be a sound driver or hardware issue.</li>
+    </ul>
+
+    <h3>Step-by-Step Solution</h3>
+
+    <ol>
+      <li>Check that the volume is not muted.</li>
+      <li>Check the speaker or headset connection.</li>
+      <li>Select the correct audio output device.</li>
+      <li>Test another audio or video file.</li>
+      <li>Ask your teacher for help if the problem continues.</li>
+    </ol>
+
+    <div class="warning">
+      ⚠️ Do not open electrical equipment while troubleshooting.
+    </div>
+  </section>
+
+  <!-- NO DISPLAY -->
+
+  <section class="card guide" id="display">
+    <button class="back-button" onclick="goHome()">← Back to Topics</button>
+
+    <h2>🖥️ Monitor Has No Display</h2>
+
+    <p>
+      <strong>Problem:</strong>
+      The computer appears to turn on, but the monitor shows no picture.
+    </p>
+
+    <h3>Possible Causes</h3>
+
+    <ul>
+      <li>Monitor has no power.</li>
+      <li>Display cable is loose.</li>
+      <li>Wrong input source is selected.</li>
+      <li>Possible computer or monitor hardware issue.</li>
+    </ul>
+
+    <h3>Step-by-Step Solution</h3>
+
+    <ol>
+      <li>Check that the monitor has power.</li>
+      <li>Check the display cable connections.</li>
+      <li>Select the correct input source.</li>
+      <li>Restart the computer if it is safe to do so.</li>
+      <li>Ask a qualified technician for help if the display remains blank.</li>
+    </ol>
+
+    <div class="warning">
+      ⚠️ Turn off and unplug equipment before checking physical connections.
+    </div>
+  </section>
+
+  <!-- KEYBOARD -->
+
+  <section class="card guide" id="keyboard">
+    <button class="back-button" onclick="goHome()">← Back to Topics</button>
+
+    <h2>⌨️ Keyboard Not Working</h2>
+
+    <p>
+      <strong>Problem:</strong>
+      The keyboard does not type or some keys do not respond.
+    </p>
+
+    <h3>Possible Causes</h3>
+
+    <ul>
+      <li>Keyboard cable is loose.</li>
+      <li>Wireless keyboard battery is empty.</li>
+      <li>USB port may have a problem.</li>
+      <li>Possible keyboard hardware issue.</li>
+    </ul>
+
+    <h3>Step-by-Step Solution</h3>
+
+    <ol>
+      <li>Check the keyboard cable or wireless connection.</li>
+      <li>If wireless, check the batteries.</li>
+      <li>Try another suitable USB port.</li>
+      <li>Test the keyboard in another application.</li>
+      <li>Ask your teacher or technician for help if needed.</li>
+    </ol>
+
+    <div class="warning">
+      ⚠️ Do not force connectors into USB ports.
+    </div>
+  </section>
+
+  <!-- SLOW COMPUTER -->
+
+  <section class="card guide" id="slow">
+    <button class="back-button" onclick="goHome()">← Back to Topics</button>
+
+    <h2>🐌 Computer Is Running Slowly</h2>
+
+    <p>
+      <strong>Problem:</strong>
+      Programs take a long time to open and the computer responds slowly.
+    </p>
+
+    <h3>Possible Causes</h3>
+
+    <ul>
+      <li>Too many programs are running.</li>
+      <li>Storage space is low.</li>
+      <li>Background applications use system resources.</li>
+      <li>The computer may need maintenance.</li>
+    </ul>
+
+    <h3>Step-by-Step Solution</h3>
+
+    <ol>
+      <li>Close programs that are not needed.</li>
+      <li>Check available storage space.</li>
+      <li>Restart the computer if appropriate.</li>
+      <li>Run the operating system's built-in security scan.</li>
+      <li>Ask a teacher or technician for further assistance.</li>
+    </ol>
+
+    <div class="warning">
+      ⚠️ Do not delete important system files or install unknown software.
+    </div>
+  </section>
+
+  <!-- APPLICATION -->
+
+  <section class="card guide" id="application">
+    <button class="back-button" onclick="goHome()">← Back to Topics</button>
+
+    <h2>💻 Application Is Not Responding</h2>
+
+    <p>
+      <strong>Problem:</strong>
+      A program freezes or does not respond to commands.
+    </p>
+
+    <h3>Possible Causes</h3>
+
+    <ul>
+      <li>The application has encountered an error.</li>
+      <li>The computer has limited available resources.</li>
+      <li>The application may need an update.</li>
+    </ul>
+
+    <h3>Step-by-Step Solution</h3>
+
+    <ol>
+      <li>Wait briefly to see if the application responds.</li>
+      <li>Save your work if possible.</li>
+      <li>Close and reopen the application.</li>
+      <li>Restart the computer if necessary.</li>
+      <li>Report repeated problems to your teacher or technician.</li>
+    </ol>
+
+    <div class="warning">
+      ⚠️ Save important work before closing an unresponsive application.
+    </div>
+  </section>
+
+  <div class="footer">
+    <p>CSS Troubleshooting Guide</p>
+    <p>Educational learning resource for CSS students.</p>
+  </div>
+
+</div>
+
+<script>
+function openGuide(id) {
+  document.querySelectorAll(".guide").forEach(function(guide) {
+    guide.classList.remove("active");
+  });
+
+  document.getElementById("home").style.display = "none";
+
+  var selectedGuide = document.getElementById(id);
+
+  if (selectedGuide) {
+    selectedGuide.classList.add("active");
+    window.location.hash = id;
+    window.scrollTo(0, 0);
+  }
+}
+
+function goHome() {
+  document.querySelectorAll(".guide").forEach(function(guide) {
+    guide.classList.remove("active");
+  });
+
+  document.getElementById("home").style.display = "block";
+
+  history.replaceState(null, "", window.location.pathname + window.location.search);
+
+  window.scrollTo(0, 0);
+}
+
+function loadGuideFromURL() {
+  var id = window.location.hash.substring(1);
+
+  var guide = document.getElementById(id);
+
+  if (guide && guide.classList.contains("guide")) {
+    openGuide(id);
+  } else {
+    goHome();
+  }
+}
+
+document.getElementById("searchBox").addEventListener("input", function() {
+  var search = this.value.toLowerCase().trim();
+  var topics = document.querySelectorAll(".topic");
+  var count = 0;
+
+  topics.forEach(function(topic) {
+    var text = topic.dataset.search.toLowerCase();
+
+    if (text.includes(search)) {
+      topic.style.display = "block";
+      count++;
+    } else {
+      topic.style.display = "none";
+    }
+  });
+
+  document.getElementById("noResults").style.display =
+    count === 0 ? "block" : "none";
+});
+
+window.addEventListener("hashchange", loadGuideFromURL);
+
+loadGuideFromURL();
+</script>
+
+</body>
+  </html>
+  
