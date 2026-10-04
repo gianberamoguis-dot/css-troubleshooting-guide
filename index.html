@@ -273,49 +273,15 @@ input:focus-visible {
 
     <p>
       <strong>Problem:</strong>
-      The keyboard does not type or some keys do not respond.
+      The keyboard does not type or respond.
     </p>
-
-    <h3>Possible Causes</h3>
-
-    <ul>
-      <li>Keyboard cable is loose or disconnected.</li>
-      <li>The USB port may have a problem.</li>
-      <li>Wireless keyboard batteries may be empty.</li>
-      <li>The keyboard may have a hardware problem.</li>
-    </ul>
 
     <h3>🛠️ Troubleshooting Procedure</h3>
 
     <ol>
-      <li>
-        Check if the keyboard cable is properly connected to the computer.
-      </li>
-
-      <li>
-        If it is a wireless keyboard, check the batteries and wireless connection.
-      </li>
-
-      <li>
-        Disconnect the keyboard and connect it to another suitable USB port.
-      </li>
-
-      <li>
-        Open a text editor and test if the keyboard can type.
-      </li>
-
-      <li>
-        Restart the computer and test the keyboard again.
-      </li>
-
-      <li>
-        If the keyboard still does not work, try another working keyboard
-        to determine if the problem is with the keyboard.
-      </li>
-
-      <li>
-        Ask your teacher or a qualified technician for further assistance.
-      </li>
+      <li>Check the keyboard connection.</li>
+      <li>Unplug and plug it back in.</li>
+      <li>Test the keyboard again.</li>
     </ol>
 
     <div class="warning">
@@ -341,50 +307,15 @@ input:focus-visible {
 
     <p>
       <strong>Problem:</strong>
-      Programs take a long time to open and the computer responds slowly.
+      The computer responds slowly or takes a long time to open programs.
     </p>
-
-    <h3>Possible Causes</h3>
-
-    <ul>
-      <li>Too many programs are running.</li>
-      <li>Storage space is low.</li>
-      <li>Too many background applications are running.</li>
-      <li>The computer may need maintenance.</li>
-    </ul>
 
     <h3>🛠️ Troubleshooting Procedure</h3>
 
     <ol>
-      <li>
-        Close programs that are not currently needed.
-      </li>
-
-      <li>
-        Check the available storage space on the computer.
-      </li>
-
-      <li>
-        Close unnecessary background applications.
-      </li>
-
-      <li>
-        Restart the computer to refresh system resources.
-      </li>
-
-      <li>
-        Run the operating system's built-in security scan.
-      </li>
-
-      <li>
-        Remove unnecessary files using the operating system's
-        built-in storage or cleanup tools.
-      </li>
-
-      <li>
-        If the computer is still slow, ask your teacher or a qualified
-        technician for further assistance.
-      </li>
+      <li>Close unused programs.</li>
+      <li>Restart the computer.</li>
+      <li>Check if it runs faster.</li>
     </ol>
 
     <div class="warning">
@@ -414,9 +345,7 @@ input:focus-visible {
 function openGuide(id) {
 
   document.querySelectorAll(".guide").forEach(function(guide) {
-
     guide.classList.remove("active");
-
   });
 
   document.getElementById("home").style.display = "none";
@@ -424,13 +353,9 @@ function openGuide(id) {
   var selectedGuide = document.getElementById(id);
 
   if (selectedGuide) {
-
     selectedGuide.classList.add("active");
-
     window.location.hash = id;
-
     window.scrollTo(0, 0);
-
   }
 
 }
@@ -439,9 +364,7 @@ function openGuide(id) {
 function goHome() {
 
   document.querySelectorAll(".guide").forEach(function(guide) {
-
     guide.classList.remove("active");
-
   });
 
   document.getElementById("home").style.display = "block";
@@ -464,13 +387,9 @@ function loadGuideFromURL() {
   var guide = document.getElementById(id);
 
   if (guide && guide.classList.contains("guide")) {
-
     openGuide(id);
-
   } else {
-
     goHome();
-
   }
 
 }
@@ -491,15 +410,10 @@ document
       var text = topic.dataset.search.toLowerCase();
 
       if (text.includes(search)) {
-
         topic.style.display = "block";
-
         count++;
-
       } else {
-
         topic.style.display = "none";
-
       }
 
     });
