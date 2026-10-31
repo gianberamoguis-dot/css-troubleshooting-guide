@@ -84,6 +84,26 @@ h2, h3 {
   min-height: 40px;
 }
 
+.category-label {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.hardware {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.software {
+  background: #dcfce7;
+  color: #15803d;
+}
+
 button {
   background: #123b5d;
   color: white;
@@ -121,9 +141,38 @@ input:focus-visible {
   margin-top: 0;
 }
 
+.guide h3 {
+  margin-top: 24px;
+}
+
+.guide p {
+  line-height: 1.6;
+}
+
 .guide li {
-  margin-bottom: 10px;
-  line-height: 1.5;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.info-box {
+  background: #f1f5f9;
+  border-left: 4px solid #123b5d;
+  padding: 14px;
+  border-radius: 8px;
+  margin: 18px 0;
+}
+
+.info-box p {
+  margin: 6px 0;
+}
+
+.result-box {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+  padding: 14px;
+  border-radius: 9px;
+  margin-top: 18px;
 }
 
 .warning {
@@ -133,6 +182,28 @@ input:focus-visible {
   padding: 14px;
   border-radius: 9px;
   margin-top: 18px;
+}
+
+.reference {
+  background: #f1f5f9;
+  border-left: 4px solid #123b5d;
+  padding: 14px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.reference p {
+  margin: 8px 0;
+}
+
+.reference a {
+  color: #1d4ed8;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+.reference a:hover {
+  color: #123b5d;
 }
 
 .no-results {
@@ -174,28 +245,32 @@ input:focus-visible {
 
 <div class="container">
 
-  <!-- HOME -->
+  <!-- HOME PAGE -->
 
   <section class="card" id="home">
 
     <h2>Welcome, CSS Students! 👋</h2>
 
     <p>
-      This website provides simple guides for identifying and
-      troubleshooting common computer hardware and software problems.
+      This website provides simple and easy-to-follow guides
+      for identifying and troubleshooting common computer
+      hardware and software problems. It helps CSS students
+      understand the causes of computer problems and learn
+      the basic steps to solve them.
     </p>
 
     <h3>How to Use This Guide</h3>
 
     <ol>
-      <li>Identify the computer problem.</li>
-      <li>Find the matching topic below.</li>
-      <li>Click <strong>View Guide</strong>.</li>
-      <li>Follow the troubleshooting procedures.</li>
-      <li>Ask your teacher for help when necessary.</li>
+      <li>Identify the computer problem you want to solve.</li>
+      <li>Search for the problem using the search bar.</li>
+      <li>Click the View Guide button.</li>
+      <li>Read the possible causes and follow the procedures.</li>
+      <li>Check the expected result after troubleshooting.</li>
+      <li>Use the reference link for additional information.</li>
     </ol>
 
-    <!-- SEARCH -->
+    <!-- SEARCH BAR -->
 
     <input
       type="search"
@@ -209,18 +284,22 @@ input:focus-visible {
 
     <div class="topic-grid" id="topicGrid">
 
-      <!-- HARDWARE -->
+      <!-- HARDWARE TOPIC -->
 
       <article
         class="topic"
         data-search="keyboard not working keyboard keys typing hardware"
       >
 
+        <span class="category-label hardware">
+          HARDWARE
+        </span>
+
         <h3>⌨️ Keyboard Not Working</h3>
 
         <p>
-          Hardware troubleshooting for a keyboard that does not type
-          or respond.
+          Learn how to identify and troubleshoot a keyboard
+          that does not type or respond.
         </p>
 
         <button onclick="openGuide('keyboard')">
@@ -229,17 +308,22 @@ input:focus-visible {
 
       </article>
 
-      <!-- SOFTWARE -->
+      <!-- SOFTWARE TOPIC -->
 
       <article
         class="topic"
         data-search="computer running slowly slow performance software"
       >
 
+        <span class="category-label software">
+          SOFTWARE
+        </span>
+
         <h3>🐌 Computer Is Running Slowly</h3>
 
         <p>
-          Software troubleshooting for a computer that responds slowly.
+          Learn how to improve computer performance when
+          programs take too long to open or respond.
         </p>
 
         <button onclick="openGuide('slow')">
@@ -257,7 +341,7 @@ input:focus-visible {
   </section>
 
 
-  <!-- KEYBOARD GUIDE -->
+  <!-- KEYBOARD NOT WORKING -->
 
   <section class="card guide" id="keyboard">
 
@@ -265,33 +349,164 @@ input:focus-visible {
       ← Back to Topics
     </button>
 
+    <br>
+
+    <span class="category-label hardware">
+      HARDWARE PROBLEM
+    </span>
+
     <h2>⌨️ Keyboard Not Working</h2>
 
     <p>
-      <strong>Type:</strong> Hardware Problem
+      <strong>Problem:</strong>
+      The keyboard does not type letters, numbers, or symbols
+      when the keys are pressed. Sometimes, only certain keys
+      work while others do not respond.
     </p>
+
+    <h3>📌 Description of the Problem</h3>
 
     <p>
-      <strong>Problem:</strong>
-      The keyboard does not type or respond.
+      A keyboard is an important input device used to enter
+      information into a computer. When it stops working,
+      users cannot type properly or use some keyboard commands.
+      This problem may happen because of a loose connection,
+      a damaged cable, an inactive wireless connection, or
+      a problem with the keyboard itself.
     </p>
 
-    <h3>🛠️ Troubleshooting Procedure</h3>
+    <h3>🔍 Common Signs</h3>
+
+    <ul>
+      <li>The keyboard does not type anything.</li>
+      <li>Some keys do not respond when pressed.</li>
+      <li>The computer does not recognize the keyboard.</li>
+      <li>The keyboard suddenly stops working while in use.</li>
+    </ul>
+
+    <h3>⚙️ Possible Causes</h3>
+
+    <ul>
+      <li>
+        Loose Connection – The keyboard cable may not be
+        properly connected to the computer.
+      </li>
+
+      <li>
+        Faulty USB Port – The USB port may not properly
+        recognize the keyboard.
+      </li>
+
+      <li>
+        Wireless Connection Problem – A wireless keyboard
+        may have a weak connection or empty batteries.
+      </li>
+
+      <li>
+        Damaged Keyboard – The keyboard may have damaged
+        keys, cables, or internal components.
+      </li>
+    </ul>
+
+    <h3>🛠️ Step-by-Step Troubleshooting Procedure</h3>
 
     <ol>
-      <li>Check the keyboard connection.</li>
-      <li>Unplug and plug it back in.</li>
-      <li>Test the keyboard again.</li>
+
+      <li>
+        <strong>Check the keyboard connection.</strong>
+        <p>
+          Look at the keyboard cable and make sure it is
+          properly connected to the computer's USB port.
+          If it is wireless, check its connection and batteries.
+        </p>
+      </li>
+
+      <li>
+        <strong>Unplug and plug it back in.</strong>
+        <p>
+          If you are using a wired keyboard, carefully remove
+          the USB connector and connect it again. Make sure
+          it is inserted properly. For wireless keyboards,
+          reconnect the wireless receiver if needed.
+        </p>
+      </li>
+
+      <li>
+        <strong>Test the keyboard again.</strong>
+        <p>
+          Open a text editor, such as Notepad, and try typing
+          some letters and numbers. Check if all the keys
+          are responding properly.
+        </p>
+      </li>
+
+      <li>
+        <strong>Try another USB port if necessary.</strong>
+        <p>
+          If the keyboard still does not work, connect it
+          to another available USB port and test it again.
+        </p>
+      </li>
+
+      <li>
+        <strong>Ask for further assistance.</strong>
+        <p>
+          If the keyboard still does not respond, inform
+          your teacher or ask a qualified technician to
+          check the device.
+        </p>
+      </li>
+
     </ol>
 
+    <div class="result-box">
+      <strong>✅ Expected Result:</strong>
+      <p>
+        The keyboard should be recognized by the computer
+        and should allow the user to type letters, numbers,
+        and other characters normally.
+      </p>
+    </div>
+
     <div class="warning">
-      ⚠️ Do not force the keyboard connector into the USB port.
+      ⚠️ Do not force the keyboard connector into the USB
+      port. Check the connection carefully to avoid damaging it.
+    </div>
+
+    <!-- KEYBOARD REFERENCE -->
+
+    <div class="reference">
+
+      <h3>📚 Reference</h3>
+
+      <p>
+        <strong>Source:</strong> Microsoft Support
+      </p>
+
+      <p>
+        <a
+          href="https://support.microsoft.com/en-us/windows/hardware/input-devices/mouse-and-keyboard-problems-in-windows"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Mouse and Keyboard Problems in Windows
+        </a>
+      </p>
+
+      <p>
+        This article explains how to check keyboard
+        connections, USB ports, wireless connections,
+        batteries, and other common keyboard problems.
+        It provides additional troubleshooting information
+        for Windows users.
+      </p>
+
     </div>
 
   </section>
 
 
-  <!-- SLOW COMPUTER GUIDE -->
+  <!-- COMPUTER RUNNING SLOWLY -->
 
   <section class="card guide" id="slow">
 
@@ -299,27 +514,169 @@ input:focus-visible {
       ← Back to Topics
     </button>
 
+    <br>
+
+    <span class="category-label software">
+      SOFTWARE PROBLEM
+    </span>
+
     <h2>🐌 Computer Is Running Slowly</h2>
 
     <p>
-      <strong>Type:</strong> Software Problem
+      <strong>Problem:</strong>
+      The computer takes a long time to start, open programs,
+      load files, or respond to commands. Even simple tasks
+      may take longer than usual to complete.
+    </p>
+
+    <h3>📌 Description of the Problem</h3>
+
+    <p>
+      A slow computer is a common problem that affects
+      how quickly a user can perform different tasks.
+      Programs may take too long to open, and the computer
+      may become unresponsive when several applications
+      are running at the same time.
     </p>
 
     <p>
-      <strong>Problem:</strong>
-      The computer responds slowly or takes a long time to open programs.
+      This problem can happen when too many programs are
+      open, unnecessary applications are running in the
+      background, or the computer has limited available
+      storage space.
     </p>
 
-    <h3>🛠️ Troubleshooting Procedure</h3>
+    <h3>🔍 Common Signs</h3>
+
+    <ul>
+      <li>The computer takes a long time to start.</li>
+      <li>Programs open very slowly.</li>
+      <li>The computer freezes or responds late.</li>
+      <li>Switching between applications takes longer.</li>
+      <li>Simple tasks take more time than usual.</li>
+    </ul>
+
+    <h3>⚙️ Possible Causes</h3>
+
+    <ul>
+
+      <li>
+        Too Many Open Programs – Running many applications
+        at the same time can use too much computer memory
+        and processing power.
+      </li>
+
+      <li>
+        Background Applications – Some programs continue
+        running even when the user is not actively using them.
+      </li>
+
+      <li>
+        Low Storage Space – A computer with very little
+        available storage may experience performance problems.
+      </li>
+
+      <li>
+        Temporary System Problems – The computer may need
+        a restart to refresh its running programs and processes.
+      </li>
+
+    </ul>
+
+    <h3>🛠️ Step-by-Step Troubleshooting Procedure</h3>
 
     <ol>
-      <li>Close unused programs.</li>
-      <li>Restart the computer.</li>
-      <li>Check if it runs faster.</li>
+
+      <li>
+        <strong>Close unused programs.</strong>
+        <p>
+          Look at the programs currently open on the computer.
+          Close applications that you are not using anymore.
+          This helps free up computer resources.
+        </p>
+      </li>
+
+      <li>
+        <strong>Restart the computer.</strong>
+        <p>
+          Save your important work first. Then click the
+          Start menu, select Power, and choose Restart.
+          Wait until the computer starts again.
+        </p>
+      </li>
+
+      <li>
+        <strong>Check if it runs faster.</strong>
+        <p>
+          After restarting, open a program and observe
+          how quickly it responds. Check if the computer
+          performs better than before.
+        </p>
+      </li>
+
+      <li>
+        <strong>Check the available storage space.</strong>
+        <p>
+          Open Settings, go to System, and select Storage.
+          Check whether the computer has enough free space.
+          Do not delete important personal or system files.
+        </p>
+      </li>
+
+      <li>
+        <strong>Ask for further assistance.</strong>
+        <p>
+          If the computer is still slow after following
+          these steps, inform your teacher or ask a
+          qualified technician to check it.
+        </p>
+      </li>
+
     </ol>
 
+    <div class="result-box">
+      <strong>✅ Expected Result:</strong>
+      <p>
+        The computer should respond more quickly, programs
+        should open more smoothly, and simple tasks should
+        become easier to perform.
+      </p>
+    </div>
+
     <div class="warning">
-      ⚠️ Do not delete important system files or install unknown software.
+      ⚠️ Do not delete important system files or install
+      unknown programs. Always save your work before
+      restarting the computer.
+    </div>
+
+    <!-- SOFTWARE REFERENCE -->
+
+    <div class="reference">
+
+      <h3>📚 Reference</h3>
+
+      <p>
+        <strong>Source:</strong> Microsoft Support
+      </p>
+
+      <p>
+        <a
+          href="https://support.microsoft.com/en-us/windows/experience/performance-optimization/tips-to-improve-pc-performance-in-windows"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Tips to Improve PC Performance in Windows
+        </a>
+      </p>
+
+      <p>
+        This article explains common reasons why a
+        computer becomes slow. It also provides ways
+        to improve performance, such as closing unused
+        applications, restarting the computer, checking
+        storage space, and managing background programs.
+      </p>
+
     </div>
 
   </section>
@@ -335,12 +692,16 @@ input:focus-visible {
       Educational learning resource for CSS students.
     </p>
 
+    <p><strong>Made by CSS Grade 12-TVL-B</strong></p>
+
   </div>
 
 </div>
 
 
 <script>
+
+// OPEN SELECTED GUIDE
 
 function openGuide(id) {
 
@@ -361,6 +722,8 @@ function openGuide(id) {
 }
 
 
+// RETURN TO HOME PAGE
+
 function goHome() {
 
   document.querySelectorAll(".guide").forEach(function(guide) {
@@ -380,6 +743,8 @@ function goHome() {
 }
 
 
+// OPEN GUIDE USING URL
+
 function loadGuideFromURL() {
 
   var id = window.location.hash.substring(1);
@@ -394,6 +759,8 @@ function loadGuideFromURL() {
 
 }
 
+
+// SEARCH FUNCTION
 
 document
   .getElementById("searchBox")
@@ -423,6 +790,8 @@ document
 
   });
 
+
+// DETECT URL CHANGES
 
 window.addEventListener("hashchange", loadGuideFromURL);
 
